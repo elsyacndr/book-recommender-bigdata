@@ -2,6 +2,32 @@ import streamlit as st
 import pandas as pd
 import math
 
+import os
+
+# ===========================
+# Folder data
+# ===========================
+BASE_DIR = os.path.dirname(__file__)  # folder app.py
+DATA_DIR = os.path.join(BASE_DIR, "data")
+
+books_path = os.path.join(DATA_DIR, "books_clean.csv")
+recs_path = os.path.join(DATA_DIR, "user_recommendations.csv")
+
+# ===========================
+# Load data
+# ===========================
+if os.path.exists(books_path):
+    books = pd.read_csv(books_path, low_memory=False)
+else:
+    st.error(f"File {books_path} tidak ditemukan!")
+    books = pd.DataFrame()
+
+if os.path.exists(recs_path):
+    recs = pd.read_csv(recs_path)
+else:
+    st.error(f"File {recs_path} tidak ditemukan!")
+    recs = pd.DataFrame()
+
 # ===========================
 # Page config
 # ===========================
