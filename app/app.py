@@ -18,6 +18,8 @@ DATA_DIR = os.path.join(BASE_DIR, "..", "data")
 books_path = os.path.join(DATA_DIR, "books_clean.csv")
 recs_path = os.path.join(DATA_DIR, "user_recommendations.csv")
 
+books = pd.read_csv(books_path, low_memory=False)
+recs = pd.read_csv(recs_path)
 
 # ===========================
 # Header & Identitas
