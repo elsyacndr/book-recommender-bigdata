@@ -12,13 +12,11 @@ st.set_page_config(page_title="Book Recommender Elsya Candra", layout="wide")
 # ===========================
 import os
 
-# pastikan cari data dari root repo
-BASE_DIR = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
-books_path = os.path.join(BASE_DIR, "data", "books_clean.csv")
-recs_path = os.path.join(BASE_DIR, "data", "user_recommendations.csv")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(BASE_DIR, "..", "data")
 
-books = pd.read_csv(books_path, low_memory=False)
-recs = pd.read_csv(recs_path)
+books_path = os.path.join(DATA_DIR, "books_clean.csv")
+recs_path = os.path.join(DATA_DIR, "user_recommendations.csv")
 
 
 # ===========================
